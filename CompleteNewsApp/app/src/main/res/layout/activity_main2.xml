@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity2"
+    android:background="@color/white">
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="200dp"
+    android:id="@+id/laycover">
+    <ImageView
+        android:id="@+id/cover"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/prothomalo"
+        android:scaleType="centerCrop"/>
+    <TextView
+        android:id="@+id/title"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="রোবোটিক হাত তৈরি করছে মেটা, কেন"
+        android:layout_alignParentBottom="true"
+        android:padding="10dp"
+        android:background="#86000000"
+        android:textColor="#FFFFFF"/>
+
+
+
+</RelativeLayout>
+
+<ScrollView
+    android:layout_below="@+id/laycover"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tvdes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="রোবটিক্স হলো প্রযুক্তির এমন একটি শাখা, যা রোবটের নকশা, তৈরি, এবং পরিচালনার সঙ্গে জড়িত। এতে ইলেকট্রনিক্স, মেকানিক্যাল ইঞ্জিনিয়ারিং এবং কম্পিউটার সায়েন্সের সংমিশ্রণে স্বয়ংক্রিয় যন্ত্র বা রোবট তৈরি করা হয়, যা বিভিন্ন কাজ করতে সক্ষম। রোবটিক্সে সেন্সর, মোটর, এবং কন্ট্রোল সিস্টেমের মাধ্যমে রোবটের চলাচল ও কাজ নিয়ন্ত্রণ করা হয়। রোবটিক্সের ব্যবহার শিল্পক্ষেত্র থেকে শুরু করে চিকিৎসা, মহাকাশ গবেষণা এবং দৈনন্দিন জীবনে ব্যাপকভাবে বৃদ্ধি পাচ্ছে। এই প্রযুক্তি ভবিষ্যতে আরও উন্নত হয়ে মানুষের জীবনকে সহজ এবং কার্যকর করে তুলবে।"
+            android:layout_alignParentBottom="true"
+            android:padding="10dp"
+            android:gravity="start"
+            android:textColor="#000000"
+            android:textSize="18dp"
+
+            android:ellipsize="end"/>
+
+    </LinearLayout>
+
+
+</ScrollView>
+
+<com.google.android.material.floatingactionbutton.FloatingActionButton
+    android:id="@+id/fab"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true"
+    android:layout_alignParentRight="true"
+    android:layout_margin="12dp"
+    android:backgroundTint="#FBACF2CF"
+    android:src="@drawable/voice"
+    app:rippleColor="@color/white"
+    android:clickable="true"
+    android:foreground="?attr/selectableItemBackground"
+    >
+
+
+</com.google.android.material.floatingactionbutton.FloatingActionButton>
+
+
+</RelativeLayout>
