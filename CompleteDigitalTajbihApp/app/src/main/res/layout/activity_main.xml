@@ -122,13 +122,17 @@
         android:textStyle="bold"
       android:layout_marginBottom="10dp"/>
 
-    <TextView
-        android:layout_width="match_parent"
+   <Button
+        android:id="@+id/bmute"
+        android:clickable="true"
+        android:backgroundTint="#FF5722"
+        android:layout_gravity="center"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:textColor="@color/white"
-        android:textStyle="italic"
-        android:text="CREATED BY EMRANUL HOQUE"/>
+        android:text="MUTE SOUND"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:textColor="#FFFFFF" />
 
 
 </LinearLayout>
