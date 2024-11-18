@@ -1,15 +1,11 @@
 package com.example.completedigitaltajbihapp;
 
-
-
-
-
 import android.annotation.SuppressLint;
-import android.icu.text.BreakIterator;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
-import android.speech.tts.TextToSpeech.OnInitListener;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -20,9 +16,12 @@ import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
     TextView tvdisplay;
-    Button badd, bsub, breset, baddla, baddsu, baddallah;
-    int count = 0;
+    Button badd, bsub, breset, baddla, baddsu, baddallah, bmute;
+    int count = 0,bcount=0,ccount=0,dcount=0;
+    boolean isMuted = false; // To track the mute state
     TextToSpeech textToSpeech;
+    TextView textview;
+    Animation animation;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -39,13 +38,17 @@ public class MainActivity extends AppCompatActivity {
         baddla = findViewById(R.id.baddla);
         baddsu = findViewById(R.id.baddsu);
         baddallah = findViewById(R.id.baddallah);
+        bmute = findViewById(R.id.bmute); // Mute button
+        textview = findViewById(R.id.textview);
+        animation = AnimationUtils.loadAnimation(MainActivity.this, R.anim.right_to_left);
+
+        textview.startAnimation(animation);
 
         // Initialize TextToSpeech
-        textToSpeech = new TextToSpeech(this, new OnInitListener() {
+        textToSpeech = new TextToSpeech(this, new TextToSpeech.OnInitListener() {
             @Override
             public void onInit(int status) {
                 if (status == TextToSpeech.SUCCESS) {
-                    // Set the language to English
                     int langResult = textToSpeech.setLanguage(Locale.US);
                     if (langResult == TextToSpeech.LANG_MISSING_DATA || langResult == TextToSpeech.LANG_NOT_SUPPORTED) {
                         // Handle missing language data or unsupported language
@@ -54,13 +57,15 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        // Button click listeners with text-to-speech
+        // Button click listeners with text-to-speech (with mute check)
         badd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 count++;
                 tvdisplay.setText(String.valueOf(count));
-                textToSpeech.speak("আলহামদুলিল্লাহ", TextToSpeech.QUEUE_FLUSH, null, null);
+                if (!isMuted) {
+                    textToSpeech.speak("আলহামদুলিল্লাহ", TextToSpeech.QUEUE_FLUSH, null, null);
+                }
 
             }
         });
@@ -68,27 +73,40 @@ public class MainActivity extends AppCompatActivity {
         baddla.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                count++;
-                tvdisplay.setText(String.valueOf(count));
-                textToSpeech.speak("লা ইলাহা ইল্লাল্লাহ", TextToSpeech.QUEUE_FLUSH, null, null);
+                bcount++;
+
+                tvdisplay.setText(String.valueOf(bcount));
+                if (!isMuted) {
+                    textToSpeech.speak("লা ইলাহা ইল্লাল্লাহ", TextToSpeech.QUEUE_FLUSH, null, null);
+                }
+
             }
         });
 
         baddsu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                count++;
-                tvdisplay.setText(String.valueOf(count));
-                textToSpeech.speak("সুবাহান আল্লাহ", TextToSpeech.QUEUE_FLUSH, null, null);
+
+                ccount++;
+                tvdisplay.setText(String.valueOf(ccount));
+                if (!isMuted) {
+                    textToSpeech.speak("সুবাহান আল্লাহ", TextToSpeech.QUEUE_FLUSH, null, null);
+                }
+
             }
         });
 
         baddallah.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                count++;
-                tvdisplay.setText(String.valueOf(count));
-                textToSpeech.speak("আল্লাহু আকবার", TextToSpeech.QUEUE_FLUSH, null, null);
+
+                dcount++;
+                tvdisplay.setText(String.valueOf(dcount));
+                if (!isMuted) {
+
+                    textToSpeech.speak("আল্লাহু আকবার", TextToSpeech.QUEUE_FLUSH, null, null);
+                }
+
             }
         });
 
@@ -108,10 +126,28 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 count = 0;
+                bcount=0;
+                ccount=0;
+                dcount=0;
                 tvdisplay.setText(String.valueOf(count));
+                tvdisplay.setText(String.valueOf(bcount));
+                tvdisplay.setText(String.valueOf(ccount));
+                tvdisplay.setText(String.valueOf(dcount));
+            }
+        });
+
+        // Mute button functionality
+        bmute.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                isMuted = !isMuted; // Toggle mute state
+                bmute.setText(isMuted ? "UNMUTE" : "MUTE"); // Update button text
+
             }
         });
     }
+
+
 
     @Override
     protected void onDestroy() {
@@ -121,4 +157,5 @@ public class MainActivity extends AppCompatActivity {
             textToSpeech.shutdown();
         }
         super.onDestroy();
-    }}
+    }
+}
