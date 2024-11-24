@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="@drawable/jjj"
+    android:orientation="vertical"
+    >
+    <TextView
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textSize="40dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="StopWatch"
+        android:textColor="@color/white"/>
+
+    <TextView
+        android:id="@+id/timertext"
+        android:layout_width="250dp"
+        android:layout_height="315dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="85dp"
+        android:textColor="@color/white"
+        android:background="@drawable/circle_two_colored"
+        android:padding="20dp"
+        android:gravity="center"
+        android:shadowRadius="@integer/material_motion_duration_long_1"
+        android:text="00:00:00"
+        android:textAlignment="center"
+        android:textSize="50dp" />
+    <RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+
+
+    <Button
+        android:id="@+id/startbtn"
+        android:layout_width="170dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="170dp"
+        android:padding="10dp"
+        android:layout_gravity="center"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:text="Start"
+        android:textSize="30dp" />
+
+    <Button
+        android:id="@+id/stopbtn"
+        android:layout_width="170dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="170dp"
+        android:padding="10dp"
+        android:layout_gravity="center"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:text="Stop"
+        android:textSize="30dp"
+        android:enabled="false"
+
+        android:layout_alignParentEnd="true"
+        />
+
+<Button
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="Reset"
+    android:gravity="center"
+    android:id="@+id/reset"
+    android:layout_marginTop="20dp"
+    android:textStyle="bold"
+    android:textSize="25dp"
+    android:layout_below="@+id/startbtn"
+    android:enabled="false"/>
+</RelativeLayout>
+</LinearLayout>
