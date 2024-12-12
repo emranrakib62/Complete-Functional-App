@@ -26,9 +26,9 @@ class MainActivity : AppCompatActivity() {
     private fun toggleFlashlight() {
         val cameraManager = getSystemService(Context.CAMERA_SERVICE) as CameraManager
         try {
-            val cameraId = cameraManager.cameraIdList[0] // Get the ID of the first camera
+            val cameraId = cameraManager.cameraIdList[0] 
             isFlashlightOn = !isFlashlightOn
-            cameraManager.setTorchMode(cameraId, isFlashlightOn) // Toggle flashlight
+            cameraManager.setTorchMode(cameraId, isFlashlightOn) 
             val message = if (isFlashlightOn) "Flashlight ON" else "Flashlight OFF"
             Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
         } catch (e: CameraAccessException) {
