@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/lavender">
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_container"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        app:cardElevation="8dp"
+        app:cardCornerRadius="16dp"
+        android:background="#FAF0F0"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="8dp"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:id="@+id/card_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Title -->
+            <TextView
+                android:id="@+id/title_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Task Master"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:paddingBottom="12dp"
+                android:textColor="?android:attr/textColorPrimary" />
+
+            <!-- Add Task Row -->
+            <LinearLayout
+                android:id="@+id/input_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingBottom="12dp">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_marginLeft="10dp"
+                    android:layout_width="260dp"
+                    android:layout_height="wrap_content"
+                    android:hint="Enter the name of the task">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edit_task"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+<soup.neumorphism.NeumorphButton
+    android:layout_width="120dp"
+    android:layout_height="70dp"
+    android:text="Add Task"
+    android:textSize="20dp"
+    android:textStyle="bold"
+
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:id="@+id/btn_add"
+    android:focusable="true"
+    android:clickable="true"
+    android:longClickable="true"
+    />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="4dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="3dp"
+                android:background="#FFD740" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+
+                android:layout_marginBottom="8dp"
+                android:background="#FF6E40" />
+
+
+
+            <!-- Scrollable Task List -->
+            <ScrollView
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="400dp"
+                android:fillViewport="true">
+
+                <LinearLayout
+                    android:id="@+id/task_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" />
+            </ScrollView>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
